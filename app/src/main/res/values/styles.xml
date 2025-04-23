@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 🌟 Texte principal normal -->
+    <style name="TextPrimary">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- 🔷 Titre principal (grande taille, gras) -->
+    <style name="TextTitle">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- 🔹 Sous-titre (moyen, gras) -->
+    <style name="TextSubtitle">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 📝 Texte secondaire -->
+    <style name="TextSecondary">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- 🪶 Petit texte -->
+    <style name="TextSmall">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Thème clair -->
+    <style name="Base.Theme.SmartHealthTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Couleurs principales -->
+        <item name="colorPrimary">@color/blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/blue_light</item>
+
+        <!-- Fond et autres éléments -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue_dark</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+
+    </style>
+
+    <!-- Point d'entrée -->
+    <style name="Theme.SmartHealthTracker" parent="Base.Theme.SmartHealthTracker" />
+</resources>
