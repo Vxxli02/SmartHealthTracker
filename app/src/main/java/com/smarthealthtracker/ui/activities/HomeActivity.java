@@ -25,11 +25,11 @@ public class HomeActivity extends AppCompatActivity {
 
     RecyclerView appointmentRecyclerView;
     AppointmentAdapter appointmentAdapter;
-    List<Appointment> appointmentList = new ArrayList<>();
+    List<Appointment> appointmentList ;
 
     RecyclerView calendarRecyclerView;
     CalendarAdapter calendarAdapter;
-    List<Calendar> calendarList = new ArrayList<>();
+    List<Calendar> calendarList ;
 
     TextView welcomeText, welcomeUser;
 
@@ -37,7 +37,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        appointmentList = new ArrayList<>();
+        calendarList = new ArrayList<>();
         Toast.makeText(this, "🏠 Dashboard patient ouvert", Toast.LENGTH_SHORT).show();
 
         // Initialisation vues
@@ -53,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             day.add(Calendar.DAY_OF_MONTH, i);
             calendarList.add(day);
         }
-
+        appointmentAdapter = new AppointmentAdapter(this, appointmentList);
         // Initialisation du calendrier avec listener
         calendarAdapter = new CalendarAdapter(this, calendarList, selectedDate -> {
             updateAppointmentsForDate(selectedDate);
@@ -66,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         updateAppointmentsForDate(today);
 
         // Adapter RDV
-        appointmentAdapter = new AppointmentAdapter(this, appointmentList);
+
         appointmentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         appointmentRecyclerView.setAdapter(appointmentAdapter);
 
@@ -78,34 +79,37 @@ public class HomeActivity extends AppCompatActivity {
         if (welcomeUser != null) welcomeUser.setText(name);
         if (welcomeText != null) {
             if ("patient".equals(role)) {
-                welcomeText.setText("👋 Bienvenue " + name + " !");
+               // welcomeText.setText("👋 Bienvenue " + name + " !");
             } else {
-                welcomeText.setText("👋 Bienvenue !");
+                //welcomeText.setText("👋 Bienvenue !");
             }
         }
     }
 
     private void updateAppointmentsForDate(Calendar selectedDate) {
-        SimpleDateFormat fmt = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-        String selectedKey = fmt.format(selectedDate.getTime());
 
-        Log.d("DATE_SELECTED", "Clé = " + selectedKey);
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+            String selectedKey = fmt.format(selectedDate.getTime());
 
-        appointmentList.clear();
+            Log.d("DATE_SELECTED", "Clé = " + selectedKey);
 
-        switch (selectedKey) {
-            case "2025/04/25":
-                appointmentList.add(new Appointment("Sarah Lamine", "Cardiologie", "10:30 - 11:00"));
-                break;
-            case "2025/04/26":
-                appointmentList.add(new Appointment("Amine Berrada", "Dermatologie", "14:00 - 14:30"));
-                appointmentList.add(new Appointment("Hajar Benzakour", "Pédiatrie", "15:00 - 15:30"));
-                break;
-            default:
-                appointmentList.add(new Appointment("Pas de rendez-vous", "", ""));
-                break;
-        }
+            appointmentList.clear();
 
-        appointmentAdapter.notifyDataSetChanged();
+            switch (selectedKey) {
+                case "2025/04/25":
+                    appointmentList.add(new Appointment("Sarah Lamine", "Cardiologie", "10:30 - 11:00"));
+                    break;
+                case "2025/04/26":
+                    appointmentList.add(new Appointment("Amine Berrada", "Dermatologie", "14:00 - 14:30"));
+                    appointmentList.add(new Appointment("Hajar Benzakour", "Pédiatrie", "15:00 - 15:30"));
+                    break;
+                default:
+                    appointmentList.add(new Appointment("Pas de rendez-vous", "", ""));
+                    break;
+            }
+
+            appointmentAdapter.notifyDataSetChanged();
+
+
     }
 }

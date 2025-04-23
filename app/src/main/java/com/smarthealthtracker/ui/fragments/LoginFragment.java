@@ -40,7 +40,7 @@ public class LoginFragment extends Fragment {
                 return;
             }
 
-            if ((email.equals("test@mail.com") || email.equals("doctor@mail.com")) && password.equals("123456")) {
+            if ((email.equals("test") || email.equals("doctor@mail.com")) && password.equals("1")) {
 
                 // Détecte et stocke le rôle
                 if (email.equals("doctor@mail.com")) {
